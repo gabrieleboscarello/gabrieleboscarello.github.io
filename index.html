@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriele Boscarello - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, #6C63FF, #3F3D56);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.2rem;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        nav a {
+            text-decoration: none;
+            color: #6C63FF;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #3F3D56;
+        }
+        section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #6C63FF;
+        }
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .project-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        .project-card img {
+            width: 100%;
+            display: block;
+        }
+        .project-card div {
+            padding: 20px;
+        }
+        .project-card h3 {
+            margin-bottom: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #3F3D56;
+            color: white;
+        }
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Gabriele Boscarello</h1>
+        <p>Nato il 15/06/2007 | Studente all'Industriale Informatico di Caltagirone</p>
+    </header>
+
+    <nav>
+        <a href="#about">Chi Sono</a>
+        <a href="#projects">Progetti</a>
+        <a href="#github">GitHub</a>
+    </nav>
+
+    <section id="about">
+        <h2>Chi Sono</h2>
+        <p>Ciao! Sono Gabriele Boscarello, nato il 15 giugno 2007, uno studente appassionato di informatica e sviluppo web presso l’Istituto Industriale Informatico di Caltagirone. Fin da giovane, sono stato affascinato dal mondo della tecnologia e del web, e nel tempo ho coltivato competenze nello sviluppo di siti moderni, responsive e funzionali.
+
+Il mio obiettivo è combinare design accattivante e funzionalità avanzate, creando esperienze digitali piacevoli e intuitive. Ho già lavorato su progetti concreti come Mondial Granit, dove ho curato sia la parte grafica che quella tecnica, imparando a gestire un progetto web completo dal concept alla pubblicazione.
+
+Oltre ai progetti commissionati, mi dedico anche a progetti personali, che presto pubblicherò su GitHub. Questi progetti spaziano da siti web interattivi a piccoli tool e applicazioni sperimentali, pensati per migliorare continuamente le mie competenze e sperimentare nuove tecnologie.
+
+Amo imparare e mettermi alla prova con nuove sfide, esplorando linguaggi di programmazione, framework moderni e soluzioni creative per il web. La mia passione per la tecnologia non è solo un hobby, ma una vera e propria vocazione: voglio crescere come sviluppatore e contribuire con progetti innovativi nel mondo digitale.</p>
+    </section>
+
+    <section id="projects">
+        <h2>Progetti Web</h2>
+        <div class="projects">
+            <div class="project-card">
+                <img src="https://via.placeholder.com/400x200" alt="Progetto 1">
+                <div>
+                    <h3>Mondial Granit</h3>
+                    <p>Sito web professionale creato per un'azienda di graniti.</p>
+                    <a href="https://mondialgranit.com" target="_blank">Visita il sito</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://via.placeholder.com/400x200" alt="Progetto 2">
+                <div>
+                    <h3>Progetto Personale</h3>
+                    <p>Uno dei miei progetti personali in sviluppo, presto disponibile su GitHub.</p>
+                    <a href="https://github.com/" target="_blank">Vai su GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="github">
+        <h2>GitHub</h2>
+        <p>Qui pubblicherò tutti i miei progetti personali e sperimentali. Seguimi per vedere le novità!</p>
+        <p><a href="https://github.com/" target="_blank">Visita il mio GitHub</a></p>
+    </section>
+
+    <footer>
+        <p>© 2025 Gabriele Boscarello. Tutti i diritti riservati.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,160 +1,293 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
+     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gabriele Boscarello - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Reset base */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-        }
-        header {
-            background: linear-gradient(135deg, #6C63FF, #3F3D56);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-        header h1 {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-        }
-        header p {
-            font-size: 1.2rem;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        nav a {
-            text-decoration: none;
-            color: #6C63FF;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #3F3D56;
-        }
-        section {
-            padding: 60px 20px;
-            max-width: 1000px;
-            margin: auto;
-        }
-        section h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #6C63FF;
-        }
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        .project-card {
-            background: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-        }
-        .project-card img {
-            width: 100%;
-            display: block;
-        }
-        .project-card div {
-            padding: 20px;
-        }
-        .project-card h3 {
-            margin-bottom: 10px;
-        }
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            background-color: #3F3D56;
-            color: white;
-        }
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2rem;
-            }
-            header p {
-                font-size: 1rem;
-            }
-        }
-    </style>
+    <meta name="description" content="Gabriele Boscarello - Web Developer Full Stack e studente dell'Istituto Industriale Informatico di Caltagirone.">
+    <meta property="og:title" content="Gabriele Boscarello - Web Developer">
+    <meta property="og:description" content="Portfolio, progetti e contatti di Gabriele Boscarello.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gabrieleboscarello.github.io">
+    <meta property="og:image" content="https://gabrieleboscarello.github.io/anteprima.jpg">
+
+  <title>Gabriele Boscarello - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f7fb;
+      color: #222;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, #004aad, #001f3f);
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: sticky;
+      top: 0;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 15px 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      z-index: 100;
+      animation: slideDown 0.8s ease;
+    }
+
+    nav a {
+      color: #004aad;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    nav a:hover {
+      color: #001f3f;
+      transform: scale(1.05);
+    }
+
+    /* SECTION BASE */
+    section {
+      padding: 70px 20px;
+      max-width: 1100px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section h2 {
+      font-size: 2rem;
+      color: #004aad;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    /* ABOUT */
+    #about p {
+      font-size: 1.05rem;
+      text-align: justify;
+      line-height: 1.8;
+    }
+
+    /* PROJECTS */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .project-card {
+      background: #fff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: all 0.4s ease;
+      transform: translateY(0);
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .project-card img {
+      width: 100%;
+      display: block;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .project-card div {
+      padding: 20px;
+    }
+
+    .project-card h3 {
+      color: #004aad;
+      margin-bottom: 10px;
+    }
+
+    .project-card a {
+      text-decoration: none;
+      color: white;
+      background: #004aad;
+      padding: 8px 15px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      display: inline-block;
+      margin-top: 10px;
+      transition: background 0.3s;
+    }
+
+    .project-card a:hover {
+      background: #002f6c;
+    }
+
+    /* GITHUB SECTION */
+    #github p {
+      text-align: center;
+      font-size: 1.05rem;
+    }
+
+    #github a {
+      color: white;
+      background: #004aad;
+      padding: 10px 18px;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 15px;
+      transition: background 0.3s;
+    }
+
+    #github a:hover {
+      background: #002f6c;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #001f3f;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+      margin-top: 60px;
+    }
+
+    /* ANIMAZIONI */
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes slideDown {
+      from {transform: translateY(-50px); opacity: 0;}
+      to {transform: translateY(0); opacity: 1;}
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      section {
+        padding: 50px 15px;
+      }
+      .project-card img {
+        height: 160px;
+      }
+    }
+      @media (max-width: 500px) {
+  header p { font-size: 0.95rem; }
+  nav a { font-size: 0.9rem; }
+  section h2 { font-size: 1.6rem; }
+}
+
+  </style>
 </head>
 <body>
 
-    <header>
-        <h1>Gabriele Boscarello</h1>
-        <p>Nato il 15/06/2007 | Studente all'Industriale Informatico di Caltagirone</p>
-    </header>
+  <header>
+    <h1>Gabriele Boscarello</h1>
+    <p>Nato il 15/06/2007 | Studente all'Istituto Industriale Informatico di Caltagirone</p>
+    <p>Email: <a href="mailto:gabrieleboscarello@gmail.com" style="color: #aad4ff;">gabrieleboscarello@gmail.com</a></p>
+  </header>
 
-    <nav>
-        <a href="#about">Chi Sono</a>
-        <a href="#projects">Progetti</a>
-        <a href="#github">GitHub</a>
-    </nav>
+  <nav>
+    <a href="#about">Chi Sono</a>
+    <a href="#projects">Progetti</a>
+    <a href="#github">GitHub</a>
+  </nav>
 
-    <section id="about">
-        <h2>Chi Sono</h2>
-        <p>Ciao! Sono Gabriele Boscarello, nato il 15 giugno 2007, uno studente appassionato di informatica e sviluppo web presso l’Istituto Industriale Informatico di Caltagirone. Fin da giovane, sono stato affascinato dal mondo della tecnologia e del web, e nel tempo ho coltivato competenze nello sviluppo di siti moderni, responsive e funzionali.
+  <section id="about">
+    <h2>Chi Sono</h2>
+    <p>
+      Ciao! Sono <strong>Gabriele Boscarello</strong>, nato il 15 giugno 2007, e frequento l’Istituto Industriale Informatico di Caltagirone.
+      Sono appassionato di <strong>informatica, sviluppo web e programmazione</strong>.  
+      Ho creato progetti completi come il sito <a href="https://mondialgranit.com" target="_blank" style="color:#004aad;font-weight:600;">mondialgranit.com</a>,
+      curando sia la parte grafica che tecnica.  
+      Possiedo competenze in <strong>HTML, CSS, JavaScript, PHP, MySQL, Python, MongoDB</strong> e conoscenze di base in <strong>C, C++ e Java</strong>.  
+      Utilizzo strumenti come <strong>XAMPP, LAMP, phpMyAdmin, NetBeans, IntelliJ</strong> e continuo a sperimentare nuove tecnologie per migliorarmi costantemente.
+    </p>
+  </section>
 
-Il mio obiettivo è combinare design accattivante e funzionalità avanzate, creando esperienze digitali piacevoli e intuitive. Ho già lavorato su progetti concreti come Mondial Granit, dove ho curato sia la parte grafica che quella tecnica, imparando a gestire un progetto web completo dal concept alla pubblicazione.
-
-Oltre ai progetti commissionati, mi dedico anche a progetti personali, che presto pubblicherò su GitHub. Questi progetti spaziano da siti web interattivi a piccoli tool e applicazioni sperimentali, pensati per migliorare continuamente le mie competenze e sperimentare nuove tecnologie.
-
-Amo imparare e mettermi alla prova con nuove sfide, esplorando linguaggi di programmazione, framework moderni e soluzioni creative per il web. La mia passione per la tecnologia non è solo un hobby, ma una vera e propria vocazione: voglio crescere come sviluppatore e contribuire con progetti innovativi nel mondo digitale.</p>
-    </section>
-
-    <section id="projects">
-        <h2>Progetti Web</h2>
-        <div class="projects">
-            <div class="project-card">
-                <img src="https://via.placeholder.com/400x200" alt="Progetto 1">
-                <div>
-                    <h3>Mondial Granit</h3>
-                    <p>Sito web professionale creato per un'azienda di graniti.</p>
-                    <a href="https://mondialgranit.com" target="_blank">Visita il sito</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <img src="https://via.placeholder.com/400x200" alt="Progetto 2">
-                <div>
-                    <h3>Progetto Personale</h3>
-                    <p>Uno dei miei progetti personali in sviluppo, presto disponibile su GitHub.</p>
-                    <a href="https://github.com/" target="_blank">Vai su GitHub</a>
-                </div>
-            </div>
+  <section id="projects">
+    <h2>Progetti Web</h2>
+    <div class="projects">
+      <div class="project-card">
+        <img src="https://via.placeholder.com/400x200" alt="Progetto Mondial Granit">
+        <div>
+          <h3>Mondial Granit</h3>
+          <p>Sito web professionale realizzato per un’azienda del settore graniti.</p>
+          <a href="https://mondialgranit.com" target="_blank">Visita il sito</a>
         </div>
-    </section>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/400x200" alt="Progetto GitHub">
+        <div>
+          <h3>Progetti su GitHub</h3>
+          <p>Progetti personali e sperimentali pubblicati e in continuo ampliamento.</p>
+          <a href="https://github.com/gabrieleboscarello" target="_blank">Vai su GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section id="github">
-        <h2>GitHub</h2>
-        <p>Qui pubblicherò tutti i miei progetti personali e sperimentali. Seguimi per vedere le novità!</p>
-        <p><a href="https://github.com/" target="_blank">Visita il mio GitHub</a></p>
-    </section>
+  <section id="github">
+    <h2>GitHub</h2>
+    <p>Scopri i miei progetti, aggiornamenti e nuove sperimentazioni su GitHub.</p>
+    <p><a href="https://github.com/gabrieleboscarello" target="_blank">Visita il mio GitHub</a></p>
+  </section>
 
-    <footer>
-        <p>© 2025 Gabriele Boscarello. Tutti i diritti riservati.</p>
-    </footer>
+  <footer>
+    <p>© 2025 Gabriele Boscarello — Tutti i diritti riservati.</p>
+  </footer>
+
+  <script>
+    // Effetto fade-in al scroll
+    const sections = document.querySelectorAll('section');
+    const showOnScroll = () => {
+      const trigger = window.innerHeight * 0.85;
+      sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < trigger) sec.classList.add('visible');
+      });
+    };
+    window.addEventListener('scroll', showOnScroll);
+    window.addEventListener('load', showOnScroll);
+  </script>
 
 </body>
 </html>

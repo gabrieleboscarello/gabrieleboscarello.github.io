@@ -1,18 +1,12 @@
 {
   "projects": [
     {
-      "id": "1774295523000",
-      "title": "Calcolatore BMI",
-      "description": "Calcolatore bmi online, basato su algoritmi ufficiali.",
-      "link": "https://bmicalculator.altervista.org",
-      "date": "2026-03-23T19:52:03.000Z"
-    },
-    {
-      "id": "1774295523001",
-      "title": "Analizzatore Parametri Vitali",
-      "description": "Analizza i parametri vitali inserendo in input informazioni rilasciate da strumenti di controllo",
-      "link": "https://gabrieleboscarelloparametri.streamlit.app",
-      "date": "2026-03-23T19:52:03.000Z"
+      {
+      "id": "1779475458498",
+      "title": "VPN Site-to-Site, IPSec",
+      "description": "L'obiettivo di questa attività è la progettazione, l'implementazione e la verifica di una connessione VPN Site-\nto-Site crittografata tramite protocollo IPsec (IP Security)",
+      "link": "htttps://gabrieleboscarello.github.io/Dispense/VPN_01_boscarello.pdf",
+      "date": "2026-05-22T18:44:18.498Z"
     },
     {
       "id": "1774295523001",
@@ -30,6 +24,13 @@
     }
   ],
   "certifications": [
+    {
+      "id": "1779475489615",
+      "title": "CISCO CCNA ",
+      "description": "Certificazione Cisco CCNA v.7",
+      "link": "",
+      "date": "2026-05-22T18:44:49.615Z"
+    },
     {
       "id": "17742955231",
       "title": "Alla Scoperta della Cybersecurity",

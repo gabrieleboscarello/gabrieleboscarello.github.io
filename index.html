@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Inserisci questo dentro <head>, subito dopo <title> -->
+<meta name="description" content="Portfolio ufficiale di Gabriele Boscarello: cybersecurity, sviluppo software, sviluppo web, certificazioni e progetti in HTML, CSS, JavaScript, PHP, Python e database.">
+<meta name="keywords" content="Gabriele Boscarello, portfolio, cybersecurity, sviluppo web, sviluppatore, Caltagirone, informatica, Python, PHP, JavaScript">
+<meta name="author" content="Gabriele Boscarello">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://tuodominio.it/">
+
+<!-- Open Graph per Google e social -->
+<meta property="og:title" content="Gabriele Boscarello | Portfolio">
+<meta property="og:description" content="Scopri il portfolio di Gabriele Boscarello: progetti, certificazioni e competenze in cybersecurity e sviluppo software.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gabrieleboscarello.wuaze.com/">
+<meta property="og:image" content="https://gabrieleboscarello.wuaze.com/image/me.png">
+<meta property="og:locale" content="it_IT">
+
+<!-- Twitter/X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gabriele Boscarello | Portfolio">
+<meta name="twitter:description" content="Portfolio personale con progetti, certificazioni e competenze informatiche.">
+<meta name="twitter:image" content="https://gabrieleboscarello.wuaze.com/image/me.png">
+
+<!-- Dati strutturati Person (importantissimo per Google) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Gabriele Boscarello",
+  "url": "https://gabrieleboscarello.wuaze.com/",
+  "image": "https://gabrieleboscarello.wuaze.com/image/me.png",
+  "jobTitle": "Studente di Informatica e Web Developer",
+  "description": "Appassionato di cybersecurity, sviluppo software e sviluppo web.",
+  "alumniOf": {
+    "@type": "EducationalOrganization",
+    "name": "Istituto Industriale Informatico di Caltagirone"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/gabriele-boscarello-6bb819399/"
+  ]
+}
+</script>
+
+<title>Gabriele Boscarello</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styl.css">
+    <style>/* ======================= Variabili globali ======================= */
+:root {
+  --bg: #0e0e11;
+  --fg: #ffffff;
+  --muted: #a1a1aa;
+  --accent: #6366f1;
+}
+
+/* ======================= Reset ======================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ======================= Header ======================= */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(14,14,17,0.6);
+  backdrop-filter: blur(10px);
+  z-index: 10;
+}
+
+header h1 {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+nav a {
+  font-weight: 500;
+  color: var(--fg);
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+/* ======================= Hero / Chi sono ======================= */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  align-items: center;
+  padding: 120px 24px 64px;
+  gap: 40px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.hero-text h2 {
+  font-size: clamp(2.1rem, 4vw, 3.2rem);
+  line-height: 1.2;
+  margin-bottom: 18px;
+  animation: fadeUp 1s ease forwards;
+}
+
+.hero-text p {
+  font-size: 1rem;
+  color: var(--muted);
+  max-width: 520px;
+  margin-bottom: 24px;
+  animation: fadeUp 1.3s ease forwards;
+}
+
+.hero-text .btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: var(--accent);
+  color: white;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  animation: fadeUp 1.6s ease forwards;
+}
+
+.hero-img {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  animation: fadeIn 2s ease forwards;
+  max-height: 420px;
+}
+
+.hero-img img {
+  width: auto;       /* Larghezza reale dell'immagine */
+  max-width: 300px;  /* Limite massimo per desktop */
+  height: 80%;      /* Mantiene proporzioni */
+  object-fit: cover; /* L'immagine si adatta senza ritagli */
+  display: block;
+  margin: 0 auto;    /* Centra l'immagine */
+  transform: none; 
+    border-radius: 24px;
+}
+
+/* ======================= Sezioni ======================= */
+section {
+  padding: 80px 24px;
+}
+
+.section-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.section-inner h2 {
+  font-size: 1.8rem;
+  margin-bottom: 32px;
+}
+
+/* ======================= Progetti dinamici ======================= */
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: #16161d;
+  padding: 28px;
+  border-radius: 20px;
+  transition: transform .3s ease, background .3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  background: #1c1c26;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.card .btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 8px 16px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: .3s;
+}
+
+.card .btn:hover {
+  transform: scale(1.05);
+}
+
+/* ======================= Contatti ======================= */
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.contact-text p {
+  color: var(--muted);
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+  max-width: 520px;
+}
+
+.contact-details {
+  display: grid;
+  gap: 10px;
+  font-size: 0.98rem;
+}
+
+.contact-details span {
+  color: var(--muted);
+}
+
+.contact-details a {
+  color: var(--fg);
+  font-weight: 500;
+}
+
+/* ======================= Footer ======================= */
+footer {
+  padding: 40px 24px;
+  background: #050508;
+}
+
+.footer-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+footer span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ======================= Animazioni ======================= */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+/* ======================= Form Contatti ======================= */
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: none;
+  background: #1c1c26;
+  color: var(--fg);
+  font-family: inherit;
+  font-size: 0.95rem;
+  resize: vertical;
+  transition: background .3s, transform .2s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  background: #2a2a38;
+  transform: scale(1.02);
+}
+
+.contact-form button {
+  padding: 14px 0;
+  border-radius: 12px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform .2s, box-shadow .3s;
+}
+
+.contact-form button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 18px rgba(99,102,241,.5);
+}
+/* ===========================
+   Sezione Certificazioni
+   =========================== */
+#certifications {
+  padding: 80px 24px;
+  background: #0d0d10; /* leggermente diverso dallo sfondo per evidenziarla */
+}
+
+#certifications .section-inner h2 {
+  font-size: 1.8rem;
+  margin-bottom: 32px;
+}
+
+#certifications .services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+#certifications .card {
+  background: #16161d;
+  padding: 28px;
+  border-radius: 20px;
+  transition: transform .3s ease, background .3s ease;
+}
+
+#certifications .card:hover {
+  transform: translateY(-6px);
+  background: #1c1c26;
+}
+
+#certifications .card h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+#certifications .card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+#certifications .card a.btn {
+  margin-top: 12px;
+  display: inline-block;
+}
+/* ======================= Responsive ======================= */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 96px 16px 48px;
+    gap: 28px;
+  }
+
+  .hero-img {
+    max-height: 320px;
+  }
+
+  section {
+    padding: 64px 16px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-inner h2 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 600px) {
+  nav { display: none; }
+  header { justify-content: center; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+}</style>
+</head>
+<body>
+
+<header>
+  <h1>Gabriele Boscarello</h1>
+  <nav>
+    <a href="#hero">Home</a>
+    <a href="#projects">Progetti & Certificazioni</a>
+    <a href="#contact">Contatti</a>
+  </nav>
+</header>
+
+<!-- Hero / Chi sono -->
+<section id="hero" class="hero">
+  <div class="hero-text">
+    <h2><strong>Chi sono?</strong></h2>
+    <p>
+        <b>Gabriele Boscarello </b>nato il 15 giugno 2007 a Caltagirone, frequento l'Istituto Industriale Informatico di Caltagirone.<br>
+        Sono appassionato di <strong>Sicurezza Informatica, Sviluppo Software e Sviluppo Web</strong>.
+        Possiedo competenze in <strong>HTML, CSS, JavaScript, PHP, MySQL, Python, MongoDB</strong> con basi di <strong>C, C++ e Java</strong>.
+        Utilizzo strumenti come <strong>XAMPP, LAMP, phpMyAdmin, Apache e Vmware</strong>.<br>
+        Ho partecipato al corso di formazione <strong>ANTEV</strong> per <b>Tecnico Verificatore di Apparecchiature elettromedicali</b>, con esito positivo ai primi due moduli.(In corso)
+      </p>
+    <a href="#projects" class="btn">Vedi Progetti</a>
+  </div>
+  <div class="hero-img">
+    <img src="/image/me.png" alt="Gabriele Boscarello">
+  </div>
+</section>
+
+<!-- Progetti dinamici -->
+<section id="projects">
+  <div class="section-inner">
+    <h2>I miei progetti</h2>
+    <div class="services" id="projects-grid">
+      <!-- I progetti verranno caricati dinamicamente -->
+    </div>
+  </div>
+</section>
+
+<!-- Certificazioni dinamiche -->
+<section id="certifications">
+  <div class="section-inner">
+    <h2>Le mie certificazioni</h2>
+    <div class="services" id="certifications-grid">
+      <!-- Le certificazioni verranno caricate dinamicamente -->
+    </div>
+  </div>
+</section>
+<!-- Contatti -->
+<section id="contact">
+  <div class="section-inner contact-grid">
+    <div class="contact-text">
+      <h2>Contattami</h2>
+      <p>Per collaborazioni o domande, puoi contattarmi via form oppure visitare il mio LinkedIn.</p>
+    </div>
+    <div class="contact-form">
+      <form action="https://formsubmit.co/gabrieleboscarello@gmail.com" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="name" placeholder="Nome" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <textarea name="message" placeholder="Messaggio" required></textarea>
+        <button type="submit">Invia</button>
+      </form>
+      <div class="contact-details"><br>
+        <span>Email: </span><a href="mailto:gabrieleboscarello@gmail.com">gabrieleboscarello@gmail.com</a><br>
+        <span>LinkedIn: </span><a href="https://www.linkedin.com/in/gabriele-boscarello-6bb819399/" target="_blank">Gabriele Boscarello</a>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  const API_URL = "./data.json";
+
+// Carica progetti
+async function loadProjects() {
+  try {
+    const res = await fetch(API_URL);
+    const data = await res.json();
+
+    const grid = document.getElementById("projects-grid");
+    grid.innerHTML = "";
+
+    data.projects.forEach(project => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <h3>${project.title}</h3>
+        ${project.description ? `<p>${project.description}</p>` : ""}
+        ${project.link ? `<a href="${project.link}" target="_blank" class="btn">Apri Progetto</a>` : ""}
+      `;
+      grid.appendChild(card);
+    });
+  } catch (err) {
+    console.error(err);
+    document.getElementById("projects-grid").innerHTML = "<p>Non ci sono progetti disponibili.</p>";
+  }
+}
+
+// Carica certificazioni
+async function loadCertifications() {
+  try {
+    const res = await fetch(API_URL);
+    const data = await res.json();
+
+    const grid = document.getElementById("certifications-grid");
+    grid.innerHTML = "";
+
+    data.certifications.forEach(cert => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <h3>${cert.title}</h3>
+        ${cert.description ? `<p>${cert.description}</p>` : ""}
+        
+      `;
+      grid.appendChild(card);
+    });
+  } catch (err) {
+    console.error(err);
+    document.getElementById("certifications-grid").innerHTML = "<p>Non ci sono certificazioni disponibili.</p>";
+  }
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  loadProjects();
+  loadCertifications();
+});
+</script>
+
+</body>
+</html>

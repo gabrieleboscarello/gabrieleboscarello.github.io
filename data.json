@@ -1,0 +1,90 @@
+{
+  "projects": [
+    {
+      "id": "1774295523000",
+      "title": "Calcolatore BMI",
+      "description": "Calcolatore bmi online, basato su algoritmi ufficiali.",
+      "link": "https://bmicalculator.altervista.org",
+      "date": "2026-03-23T19:52:03.000Z"
+    },
+    {
+      "id": "1774295523001",
+      "title": "Analizzatore Parametri Vitali",
+      "description": "Analizza i parametri vitali inserendo in input informazioni rilasciate da strumenti di controllo",
+      "link": "https://gabrieleboscarelloparametri.streamlit.app",
+      "date": "2026-03-23T19:52:03.000Z"
+    },
+    {
+      "id": "1774295523001",
+      "title": "Man In The Middle",
+      "description": "Attacco 'Man In The Middle' strutturato in modo laboratoriale e relazionato spiegando ogni passaggio.",
+      "link": "https://gabrieleboscarello.wuaze.com/Dispense/Man_In_The_Middle_FTP.pdf",
+      "date": "2026-03-23T19:52:03.000Z"
+    },
+    {
+      "id": "1774295523001",
+      "title": "Gestione Appuntamenti",
+      "description": "Webapp creata per gestire i propri appuntamenti privati o aziendali, gestiti in json",
+      "link": "https://github.com/gabrieleboscarello/Gestione-Appuntamenti",
+      "date": "2026-03-23T19:52:03.000Z"
+    }
+  ],
+  "certifications": [
+    {
+      "id": "17742955231",
+      "title": "Alla Scoperta della Cybersecurity",
+      "description": "Rilasciata da Adobe Learning Manager - IBM",
+      "link": " ",
+      "date": "2026-03-23T19:52:03.000Z"
+    },
+    {
+      "id": "1774295523001",
+      "title": "UX/UI Design",
+      "description": "Rilasciata da Boolean",
+      "link": " ",
+      "date": "2026-03-23T19:52:03.000Z"
+    },
+    {
+      "id": "1774295523001",
+      "title": "Data Analytics - Python",
+      "description": "Rilasciata da Boolean",
+      "link": " ",
+      "date": "2026-03-23T19:52:03.000Z"
+    },
+    {
+      "id": "1774295523001",
+      "title": "ICDL FULL-STANDARD",
+      "description": "Rilasciata da AICA - Associazione Italiana per L'informatica e il Calcolo Automatico",
+      "link": " ",
+      "date": "2026-03-23T19:52:03.000Z"
+    },
+    {
+      "id": "1774295523001",
+      "title": "ICDL STANDARD",
+      "description": "Rilasciata da AICA - Associazione Italiana per L'informatica e il Calcolo Automatico",
+      "link": " ",
+      "date": "2026-03-23T19:52:03.000Z"
+    },
+    {
+      "id": "1774295523001",
+      "title": "ICDL IT-SECURITY",
+      "description": "Rilasciata da AICA - Associazione Italiana per L'informatica e il Calcolo Automatico",
+      "link": " ",
+      "date": "2026-03-23T19:52:03.000Z"
+    },
+    {
+      "id": "1774295523001",
+      "title":"Data Visualization with Python" ,
+      "description": "Rilasciata da IBM SkillsBuild",
+      "link": " ",
+      "date": "2026-03-23T19:52:03.000Z"
+    },
+      {
+      "id": "1774295523001",
+      "title":"EduTronics" ,
+      "description": "Attestato di Frequenza corso robotica effettuato in sede scolastica",
+      "link": " ",
+      "date": "2026-03-23T19:52:03.000Z"
+    }
+  ]
+}

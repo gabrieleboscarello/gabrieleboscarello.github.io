@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gabrieleboscarello.wuaze.com/sitemap.xml

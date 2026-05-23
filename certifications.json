@@ -1,32 +1,82 @@
 [
   {
     "id": 1,
-    "title": "AWS Certified Solutions Architect",
-    "description": "Certificazione professionale per la progettazione di architetture cloud scalabili, sicure e ad alta disponibilità su Amazon Web Services.",
-    "technologies": ["AWS", "Cloud Architecture", "IAM", "S3", "EC2"],
-    "link": "https://aws.amazon.com/certification/",
-    "issuer": "Amazon Web Services",
+    "title": "CISCO CCNA",
+    "description": "Certificazione industriale Cisco Certified Network Associate (CCNA). Attesta competenze complete su fondamentali di rete, sicurezza informatica, connettività/routing IP e automazione delle infrastrutture.",
+    "technologies": ["Cisco CLI", "Routing & Switching", "VLAN", "TCP/IP", "Subnetting"],
+    "link": "https://gabrieleboscarello.github.io",
+    "issuer": "Cisco Networking Academy",
     "type": "certification",
-    "date": "2024-09"
+    "date": "2026-05"
+  },
+  {
+    "id": 1,
+    "title": "Introduction to Cybersecurity",
+    "description": "Certificazione iniziale Cisco con relativo Badge digitale. Attesta le competenze fondamentali nella protezione dei dati, privacy online, minacce informatiche (malware, phishing) e i principi base della sicurezza delle reti.",
+    "technologies": ["Cybersecurity Basics", "Threat Analysis", "Data Privacy", "Digital Badge"],
+    "link": "https://gabrieleboscarello.github.io",
+    "issuer": "Cisco Networking Academy",
+    "type": "certification",
+    "date": "2024-01"
   },
   {
     "id": 2,
-    "title": "Google Professional Data Engineer",
-    "description": "Certificazione per la progettazione, costruzione e operatività di sistemi di elaborazione dati su Google Cloud Platform.",
-    "technologies": ["GCP", "BigQuery", "Dataflow", "Pub/Sub"],
-    "link": "https://cloud.google.com/certification/",
-    "issuer": "Google Cloud",
+    "title": "ICDL FULL-STANDARD",
+    "description": "Certificazione completa che attesta il possesso di tutte le competenze digitali standard per il mondo del lavoro, superando con successo tutti i 7 moduli previsti.",
+    "technologies": ["IT-Security", "Online Collaboration", "Computer Essentials", "Spreadsheets"],
+    "link": "https://gabrieleboscarello.github.io",
+    "issuer": "AICA",
     "type": "certification",
-    "date": "2024-06"
+    "date": "2024-03"
   },
   {
     "id": 3,
-    "title": "Dispensa: Clean Code Principles",
-    "description": "Raccolta strutturata di principi e pattern per la scrittura di codice manutenibile, testabile e scalabile in ambienti enterprise.",
-    "technologies": ["Software Design", "SOLID", "Design Patterns", "TDD"],
-    "link": "https://github.com/gabrieleboscarello",
-    "issuer": "Autoredatto",
-    "type": "notes",
-    "date": "2024-03"
+    "title": "ICDL STANDARD",
+    "description": "Certificazione focalizzata sulle abilità informatiche essenziali e intermedie per la gestione e l'organizzazione digitale delle attività professionali.",
+    "technologies": ["Base ICT", "Presentation", "Online Tools"],
+    "link": "https://gabrieleboscarello.github.io",
+    "issuer": "AICA",
+    "type": "certification",
+    "date": "2024-02"
+  },
+  {
+    "id": 4,
+    "title": "ICDL IT-SECURITY",
+    "description": "Certificazione specialistica incentrata sulla sicurezza informatica: protezione dei dati personali, sicurezza delle reti domestiche/aziendali, prevenzione malware e gestione delle minacce informatiche.",
+    "technologies": ["Cybersecurity Basics", "Data Protection", "Network Security"],
+    "link": "https://gabrieleboscarello.github.io",
+    "issuer": "AICA",
+    "type": "certification",
+    "date": "2024-02"
+  },
+  {
+    "id": 5,
+    "title": "CORSO EDUTRONICS",
+    "description": "Corso di formazione specialistica in presenza focalizzato su tecnologie informatiche ed elettroniche applicate.",
+    "technologies": ["Hardware", "Informatica Applicata", "Laboratorio"],
+    "link": "https://gabrieleboscarello.github.io",
+    "issuer": "Istituto Industriale Informatico di Caltagirone",
+    "type": "certification",
+    "date": "2026-01"
+  },
+  {
+    "id": 6,
+    "title": "Formazione sulla Salute e Sicurezza sul Lavoro (4 Ore)",
+    "description": "Attestato di formazione generale obbligatoria in materia di salute e sicurezza sui luoghi di lavoro ai sensi del D.Lgs. 81/08.",
+    "technologies": ["Normativa Sicurezza", "Prevenzione Rischi", "Ambiente di Lavoro"],
+    "link": "https://gabrieleboscarello.github.io",
+    "issuer": "ANFOS",
+    "type": "certification",
+    "date": "2025-11"
+  },
+  {
+    "id": 7,
+    "title": "Corso di Formazione Generale Sicurezza (12 Ore)",
+    "description": "Corso di formazione esteso e approfondito riguardante le procedure di sicurezza, gestione del rischio e prevenzione degli infortuni.",
+    "technologies": ["Rischio Specifico", "Procedure di Emergenza", "Hardening del Posto di Lavoro"],
+    "link": "https://gabrieleboscarello.github.io",
+    "issuer": "CE.RI.FO",
+    "type": "certification",
+    "date": "2025-11"
   }
 ]

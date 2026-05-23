@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel — GB Portfolio</title>
+  <!-- Prevent indexing of admin page -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- TAILWIND -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Syne', 'sans-serif'],
+            body:    ['DM Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #0a0a0f; color: #e2e2f0;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #0a0a0f; }
+    ::-webkit-scrollbar-thumb { background: #1e1e2e; border-radius: 4px; }
+
+    .form-field {
+      width: 100%; background: #0a0a0f; border: 1px solid #1e1e2e;
+      border-radius: 8px; color: #e2e2f0; padding: 12px 14px;
+      font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+      transition: border-color 0.2s, box-shadow 0.2s; outline: none;
+    }
+    .form-field::placeholder { color: #3a3a5a; }
+    .form-field:focus { border-color: #6ee7b7; box-shadow: 0 0 0 3px rgba(110,231,183,0.08); }
+    select.form-field option { background: #111118; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #6ee7b7; color: #0a0a0f;
+      font-family: 'Syne', sans-serif; font-weight: 700;
+      font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 12px 24px; border-radius: 8px; border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover:not(:disabled) {
+      background: #a7f3d0; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(110,231,183,0.2);
+    }
+    .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .btn-danger {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: #f87171;
+      font-family: 'Syne', sans-serif; font-weight: 700;
+      font-size: 0.82rem; letter-spacing: 0.05em;
+      padding: 10px 18px; border-radius: 8px; border: 1px solid rgba(248,113,113,0.3); cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .btn-danger:hover { background: rgba(248,113,113,0.08); border-color: #f87171; }
+
+    .card-panel {
+      background: #111118; border: 1px solid #1e1e2e; border-radius: 14px; padding: 28px;
+    }
+    .label { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: #4a4a6a; margin-bottom: 8px; }
+    .section-tab {
+      padding: 10px 20px; border-radius: 8px; font-family: 'Syne', sans-serif;
+      font-size: 0.82rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+      cursor: pointer; transition: background 0.2s, color 0.2s; border: 1px solid #1e1e2e;
+      color: #6666a0; background: transparent;
+    }
+    .section-tab.active { background: #6ee7b7; color: #0a0a0f; border-color: #6ee7b7; }
+
+    /* Toast */
+    #toast {
+      position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+      padding: 14px 22px; border-radius: 10px;
+      font-size: 0.88rem; font-family: 'DM Sans', sans-serif;
+      transform: translateY(80px); opacity: 0;
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s;
+      pointer-events: none; max-width: 340px;
+    }
+    #toast.show { transform: translateY(0); opacity: 1; }
+    #toast.success { background: #0d2b21; border: 1px solid rgba(110,231,183,0.3); color: #6ee7b7; }
+    #toast.error   { background: #2b0d0d; border: 1px solid rgba(248,113,113,0.3); color: #f87171; }
+
+    /* Login overlay */
+    #login-overlay {
+      position: fixed; inset: 0; z-index: 100;
+      background: #0a0a0f; display: flex; align-items: center; justify-content: center;
+      padding: 24px;
+    }
+    .spinner {
+      width: 18px; height: 18px; border: 2px solid rgba(0,0,0,0.2);
+      border-top-color: #0a0a0f; border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Log entries */
+    .log-entry {
+      font-size: 0.78rem; padding: 6px 10px; border-radius: 6px;
+      border-left: 2px solid #1e1e2e; color: #6666a0;
+    }
+    .log-entry.ok { border-left-color: #6ee7b7; color: #6ee7b7; }
+    .log-entry.err { border-left-color: #f87171; color: #f87171; }
+  </style>
+</head>
+<body>
+
+  <!-- =============================================
+       TOAST NOTIFICATION
+  ============================================== -->
+  <div id="toast"></div>
+
+  <!-- =============================================
+       LOGIN OVERLAY
+  ============================================== -->
+  <div id="login-overlay">
+    <div class="card-panel w-full" style="max-width:440px;">
+      <div class="mb-8">
+        <div class="font-display font-bold text-2xl mb-1">
+          GB<span style="color:#6ee7b7;">.</span> Admin
+        </div>
+        <p class="text-sm" style="color:#4a4a6a;">Accesso riservato. Il token viene salvato solo nella sessione corrente del browser.</p>
+      </div>
+
+      <div class="space-y-4">
+        <div>
+          <label class="label">Repository GitHub (user/repo)</label>
+          <input id="login-repo" type="text" class="form-field" placeholder="gabrieleboscarello/gabrieleboscarello.github.io" />
+        </div>
+        <div>
+          <label class="label">GitHub Personal Access Token (PAT)</label>
+          <input id="login-token" type="password" class="form-field" placeholder="ghp_••••••••••••••••••••••••••••••••••" />
+          <p class="text-xs mt-2" style="color:#3a3a5a;">
+            Genera su GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens.
+            Servono i permessi: <strong style="color:#4a4a6a;">Contents: Read and write</strong>.
+          </p>
+        </div>
+        <div>
+          <label class="label">Branch</label>
+          <input id="login-branch" type="text" class="form-field" placeholder="main" value="main" />
+        </div>
+
+        <div id="login-error" class="hidden text-xs py-3 px-4 rounded-lg" style="background:rgba(248,113,113,0.08); border:1px solid rgba(248,113,113,0.2); color:#f87171;"></div>
+
+        <button id="login-btn" class="btn-primary w-full justify-center mt-2" onclick="doLogin()">
+          Accedi al pannello
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================================
+       MAIN APP (hidden until login)
+  ============================================== -->
+  <div id="app" class="hidden min-h-screen">
+
+    <!-- Top Bar -->
+    <header style="background:#111118; border-bottom:1px solid #1e1e2e;">
+      <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="font-display font-bold text-base">GB<span style="color:#6ee7b7;">.</span> Admin</span>
+          <span class="text-xs px-2 py-1 rounded" style="background:rgba(110,231,183,0.1); color:#6ee7b7; letter-spacing:0.08em;">PANNELLO DI CONTROLLO</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <span id="header-repo" class="text-xs hidden sm:block" style="color:#4a4a6a;"></span>
+          <a href="index.html" target="_blank" class="text-xs flex items-center gap-1.5" style="color:#4a4a6a;" onmouseover="this.style.color='#6ee7b7'" onmouseout="this.style.color='#4a4a6a'">
+            Vedi sito
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+          <button onclick="doLogout()" class="btn-danger" style="padding:7px 14px;">Esci</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-10">
+
+      <!-- Tabs -->
+      <div class="flex gap-3 mb-10">
+        <button class="section-tab active" onclick="switchTab('project')" id="tab-project">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline;vertical-align:-2px;margin-right:5px;"><rect x="2" y="3" width="20" height="14" rx="2"/></svg>
+          Progetto
+        </button>
+        <button class="section-tab" onclick="switchTab('certification')" id="tab-certification">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline;vertical-align:-2px;margin-right:5px;"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          Certificazione / Dispensa
+        </button>
+      </div>
+
+      <div class="grid lg:grid-cols-5 gap-8">
+
+        <!-- ===== FORM PANEL ===== -->
+        <div class="lg:col-span-3">
+
+          <!-- PROJECT FORM -->
+          <div id="form-project">
+            <div class="card-panel">
+              <h2 class="font-display font-bold text-lg mb-6">Aggiungi Progetto</h2>
+              <div class="space-y-5">
+                <div>
+                  <label class="label">Titolo *</label>
+                  <input id="p-title" type="text" class="form-field" placeholder="Nome del progetto" />
+                </div>
+                <div>
+                  <label class="label">Descrizione *</label>
+                  <textarea id="p-desc" rows="3" class="form-field resize-none" placeholder="Descrizione breve del progetto e del suo impatto..."></textarea>
+                </div>
+                <div>
+                  <label class="label">Tecnologie (separate da virgola) *</label>
+                  <input id="p-tech" type="text" class="form-field" placeholder="Python, Docker, PostgreSQL" />
+                </div>
+                <div>
+                  <label class="label">Link (GitHub / Demo)</label>
+                  <input id="p-link" type="url" class="form-field" placeholder="https://github.com/..." />
+                </div>
+                <div>
+                  <label class="label">Data (YYYY-MM)</label>
+                  <input id="p-date" type="month" class="form-field" />
+                </div>
+                <div id="p-error" class="hidden text-xs py-2 px-3 rounded" style="background:rgba(248,113,113,0.08); border:1px solid rgba(248,113,113,0.2); color:#f87171;"></div>
+                <button id="p-submit" class="btn-primary" onclick="saveItem('project')">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  Salva Progetto
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- CERTIFICATION FORM -->
+          <div id="form-certification" class="hidden">
+            <div class="card-panel">
+              <h2 class="font-display font-bold text-lg mb-6">Aggiungi Certificazione / Dispensa</h2>
+              <div class="space-y-5">
+                <div>
+                  <label class="label">Titolo *</label>
+                  <input id="c-title" type="text" class="form-field" placeholder="Nome della certificazione o dispensa" />
+                </div>
+                <div>
+                  <label class="label">Descrizione *</label>
+                  <textarea id="c-desc" rows="3" class="form-field resize-none" placeholder="Cosa copre questa certificazione/dispensa..."></textarea>
+                </div>
+                <div>
+                  <label class="label">Competenze / Tag (separate da virgola) *</label>
+                  <input id="c-tech" type="text" class="form-field" placeholder="AWS, Cloud Architecture, IAM" />
+                </div>
+                <div>
+                  <label class="label">Ente Emittente</label>
+                  <input id="c-issuer" type="text" class="form-field" placeholder="Amazon Web Services, Google, Autoredatto..." />
+                </div>
+                <div>
+                  <label class="label">Link (verifica / risorsa)</label>
+                  <input id="c-link" type="url" class="form-field" placeholder="https://..." />
+                </div>
+                <div>
+                  <label class="label">Tipo</label>
+                  <select id="c-type" class="form-field">
+                    <option value="certification">Certificazione</option>
+                    <option value="notes">Dispensa / Note</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="label">Data (YYYY-MM)</label>
+                  <input id="c-date" type="month" class="form-field" />
+                </div>
+                <div id="c-error" class="hidden text-xs py-2 px-3 rounded" style="background:rgba(248,113,113,0.08); border:1px solid rgba(248,113,113,0.2); color:#f87171;"></div>
+                <button id="c-submit" class="btn-primary" onclick="saveItem('certification')">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  Salva Certificazione
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== SIDEBAR: Info + Log ===== -->
+        <div class="lg:col-span-2 space-y-6">
+
+          <!-- Repo info -->
+          <div class="card-panel">
+            <div class="text-xs uppercase tracking-widest mb-4" style="color:#4a4a6a;">Configurazione Attiva</div>
+            <div class="space-y-2">
+              <div class="flex justify-between text-sm">
+                <span style="color:#4a4a6a;">Repository</span>
+                <span id="info-repo" class="font-mono text-xs" style="color:#e2e2f0;"></span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span style="color:#4a4a6a;">Branch</span>
+                <span id="info-branch" class="font-mono text-xs" style="color:#e2e2f0;"></span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span style="color:#4a4a6a;">Stato Token</span>
+                <span class="text-xs" style="color:#6ee7b7;">● Attivo (sessione)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- How it works -->
+          <div class="card-panel">
+            <div class="text-xs uppercase tracking-widest mb-4" style="color:#4a4a6a;">Come Funziona</div>
+            <ol class="space-y-3 text-xs" style="color:#5a5a7a; line-height:1.7;">
+              <li><span style="color:#6ee7b7;">01.</span> Compila il form con i dati del nuovo elemento.</li>
+              <li><span style="color:#6ee7b7;">02.</span> Al click su "Salva", lo script scarica il JSON attuale dalla repo via GitHub API.</li>
+              <li><span style="color:#6ee7b7;">03.</span> Aggiunge il nuovo elemento all'array e fa il commit direttamente sul branch selezionato.</li>
+              <li><span style="color:#6ee7b7;">04.</span> GitHub Pages ricostruisce il sito. Ricarica la landing page dopo ~30 secondi per vedere le modifiche.</li>
+            </ol>
+          </div>
+
+          <!-- Activity log -->
+          <div class="card-panel">
+            <div class="flex items-center justify-between mb-4">
+              <div class="text-xs uppercase tracking-widest" style="color:#4a4a6a;">Log Attività</div>
+              <button onclick="clearLog()" class="text-xs" style="color:#3a3a5a;" onmouseover="this.style.color='#f87171'" onmouseout="this.style.color='#3a3a5a'">Pulisci</button>
+            </div>
+            <div id="activity-log" class="space-y-2 max-h-64 overflow-y-auto">
+              <div class="log-entry">Nessuna attività ancora.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- =============================================
+       JAVASCRIPT
+  ============================================== -->
+  <script>
+    /* ===== STATE ===== */
+    let GH_TOKEN  = '';
+    let GH_REPO   = '';
+    let GH_BRANCH = 'main';
+
+    const FILE_MAP = {
+      project:       'projects.json',
+      certification: 'certifications.json',
+    };
+
+    /* ===== TOAST ===== */
+    function showToast(msg, type = 'success') {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.className = `show ${type}`;
+      setTimeout(() => { t.className = type; }, 3500);
+    }
+
+    /* ===== LOG ===== */
+    function addLog(msg, type = '') {
+      const log = document.getElementById('activity-log');
+      const placeholder = log.querySelector('.log-entry:not(.ok):not(.err)');
+      if (placeholder && placeholder.textContent === 'Nessuna attività ancora.') placeholder.remove();
+      const el = document.createElement('div');
+      el.className = `log-entry ${type}`;
+      el.textContent = `[${new Date().toLocaleTimeString('it-IT')}] ${msg}`;
+      log.prepend(el);
+    }
+    function clearLog() {
+      document.getElementById('activity-log').innerHTML = '<div class="log-entry">Nessuna attività ancora.</div>';
+    }
+
+    /* ===== TABS ===== */
+    function switchTab(tab) {
+      document.getElementById('form-project').classList.toggle('hidden', tab !== 'project');
+      document.getElementById('form-certification').classList.toggle('hidden', tab !== 'certification');
+      document.getElementById('tab-project').classList.toggle('active', tab === 'project');
+      document.getElementById('tab-certification').classList.toggle('active', tab === 'certification');
+    }
+
+    /* ===== LOGIN ===== */
+    async function doLogin() {
+      const token  = document.getElementById('login-token').value.trim();
+      const repo   = document.getElementById('login-repo').value.trim();
+      const branch = document.getElementById('login-branch').value.trim() || 'main';
+      const errEl  = document.getElementById('login-error');
+      const btn    = document.getElementById('login-btn');
+
+      errEl.classList.add('hidden');
+      if (!token || !repo) {
+        errEl.textContent = 'Inserisci repository e token.';
+        errEl.classList.remove('hidden');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.innerHTML = `<div class="spinner"></div> Verifica in corso…`;
+
+      try {
+        // Verify token by fetching repo info
+        const res = await fetch(`https://api.github.com/repos/${repo}`, {
+          headers: { Authorization: `token ${token}`, Accept: 'application/vnd.github.v3+json' }
+        });
+        if (!res.ok) throw new Error(`GitHub API: ${res.status} ${res.statusText}`);
+
+        // Persist in sessionStorage
+        sessionStorage.setItem('gh_token',  token);
+        sessionStorage.setItem('gh_repo',   repo);
+        sessionStorage.setItem('gh_branch', branch);
+
+        GH_TOKEN  = token;
+        GH_REPO   = repo;
+        GH_BRANCH = branch;
+
+        // Show app
+        document.getElementById('login-overlay').style.display = 'none';
+        document.getElementById('app').classList.remove('hidden');
+        document.getElementById('header-repo').textContent = repo;
+        document.getElementById('info-repo').textContent   = repo;
+        document.getElementById('info-branch').textContent = branch;
+
+        addLog(`Accesso effettuato — ${repo} (${branch})`, 'ok');
+      } catch (err) {
+        errEl.textContent = `Errore: ${err.message}. Verifica token e nome repository.`;
+        errEl.classList.remove('hidden');
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = 'Accedi al pannello';
+      }
+    }
+
+    function doLogout() {
+      sessionStorage.clear();
+      GH_TOKEN = ''; GH_REPO = ''; GH_BRANCH = '';
+      document.getElementById('login-overlay').style.display = 'flex';
+      document.getElementById('app').classList.add('hidden');
+      document.getElementById('login-token').value = '';
+    }
+
+    /* Auto-restore session */
+    window.addEventListener('DOMContentLoaded', () => {
+      const t = sessionStorage.getItem('gh_token');
+      const r = sessionStorage.getItem('gh_repo');
+      const b = sessionStorage.getItem('gh_branch') || 'main';
+      if (t && r) {
+        document.getElementById('login-token').value  = t;
+        document.getElementById('login-repo').value   = r;
+        document.getElementById('login-branch').value = b;
+        GH_TOKEN = t; GH_REPO = r; GH_BRANCH = b;
+        document.getElementById('login-overlay').style.display = 'none';
+        document.getElementById('app').classList.remove('hidden');
+        document.getElementById('header-repo').textContent = r;
+        document.getElementById('info-repo').textContent   = r;
+        document.getElementById('info-branch').textContent = b;
+        addLog('Sessione ripristinata automaticamente.', 'ok');
+      }
+    });
+
+    /* Allow Enter on login form */
+    ['login-token','login-repo','login-branch'].forEach(id => {
+      document.getElementById(id).addEventListener('keydown', e => {
+        if (e.key === 'Enter') doLogin();
+      });
+    });
+
+    /* ===== GITHUB API: GET file SHA + content ===== */
+    async function getFileFromGH(filename) {
+      const url = `https://api.github.com/repos/${GH_REPO}/contents/${filename}?ref=${GH_BRANCH}`;
+      const res = await fetch(url, {
+        headers: { Authorization: `token ${GH_TOKEN}`, Accept: 'application/vnd.github.v3+json' }
+      });
+      if (!res.ok) {
+        if (res.status === 404) return { sha: null, content: [] }; // file doesn't exist yet
+        const err = await res.json();
+        throw new Error(err.message || `GitHub API ${res.status}`);
+      }
+      const data   = await res.json();
+      const raw    = atob(data.content.replace(/\n/g, ''));
+      const parsed = JSON.parse(raw);
+      return { sha: data.sha, content: parsed };
+    }
+
+    /* ===== GITHUB API: PUT (commit) updated file ===== */
+    async function putFileToGH(filename, content, sha, commitMsg) {
+      const body = {
+        message: commitMsg,
+        content: btoa(unescape(encodeURIComponent(JSON.stringify(content, null, 2)))),
+        branch:  GH_BRANCH,
+      };
+      if (sha) body.sha = sha;
+
+      const res = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${filename}`, {
+        method:  'PUT',
+        headers: {
+          Authorization: `token ${GH_TOKEN}`,
+          Accept:        'application/vnd.github.v3+json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body),
+      });
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.message || `GitHub API ${res.status}`);
+      }
+      return res.json();
+    }
+
+    /* ===== SAVE ITEM ===== */
+    async function saveItem(type) {
+      const isProject = type === 'project';
+      const prefix    = isProject ? 'p' : 'c';
+      const filename  = FILE_MAP[type];
+      const errorEl   = document.getElementById(`${prefix}-error`);
+      const submitBtn = document.getElementById(`${prefix}-submit`);
+
+      errorEl.classList.add('hidden');
+
+      // Collect & validate
+      const title = document.getElementById(`${prefix}-title`).value.trim();
+      const desc  = document.getElementById(`${prefix}-desc`).value.trim();
+      const tech  = document.getElementById(`${prefix}-tech`).value.trim();
+      const link  = document.getElementById(`${prefix}-link`)?.value.trim() || '';
+      const date  = document.getElementById(`${prefix}-date`).value || '';
+      const issuer = isProject ? '' : (document.getElementById('c-issuer').value.trim());
+      const ctype  = isProject ? 'project' : document.getElementById('c-type').value;
+
+      if (!title || !desc || !tech) {
+        errorEl.textContent = 'Compila tutti i campi obbligatori (*).';
+        errorEl.classList.remove('hidden');
+        return;
+      }
+
+      const technologies = tech.split(',').map(s => s.trim()).filter(Boolean);
+
+      const newItem = {
+        id: Date.now(),
+        title, description: desc, technologies, link, type: ctype,
+        date: date || new Date().toISOString().slice(0,7),
+        ...(issuer && { issuer }),
+      };
+
+      // Disable button, show loading
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<div class="spinner" style="border-top-color:#0a0a0f;"></div> Salvataggio…`;
+      addLog(`Avvio salvataggio: "${title}" in ${filename}`);
+
+      try {
+        addLog(`Scarico ${filename} da GitHub…`);
+        const { sha, content: currentItems } = await getFileFromGH(filename);
+
+        const updatedItems = [...currentItems, newItem];
+        const commitMsg    = `feat: add ${ctype} "${title}"`;
+
+        addLog(`Commit in corso (${updatedItems.length} elementi totali)…`);
+        await putFileToGH(filename, updatedItems, sha, commitMsg);
+
+        addLog(`✓ "${title}" salvato correttamente in ${filename}`, 'ok');
+        showToast(`✓ "${title}" aggiunto con successo! La pagina si aggiornerà in ~30s.`, 'success');
+
+        // Reset form
+        [`${prefix}-title`,`${prefix}-desc`,`${prefix}-tech`,`${prefix}-link`,`${prefix}-date`].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.value = '';
+        });
+        if (!isProject) {
+          document.getElementById('c-issuer').value = '';
+          document.getElementById('c-type').value = 'certification';
+        }
+
+      } catch (err) {
+        addLog(`✗ Errore: ${err.message}`, 'err');
+        errorEl.textContent = `Errore GitHub API: ${err.message}`;
+        errorEl.classList.remove('hidden');
+        showToast(`Errore: ${err.message}`, 'error');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Salva ${isProject ? 'Progetto' : 'Certificazione'}`;
+      }
+    }
+  </script>
+</body>
+</html>

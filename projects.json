@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "Data Pipeline Automation",
+    "description": "Progettazione e implementazione di una pipeline ETL automatizzata per l'elaborazione di dataset aziendali su larga scala, con monitoraggio in tempo reale.",
+    "technologies": ["Python", "Apache Airflow", "PostgreSQL", "Docker"],
+    "link": "https://github.com/gabrieleboscarello",
+    "type": "project",
+    "date": "2024-11"
+  },
+  {
+    "id": 2,
+    "title": "Dashboard Analytics React",
+    "description": "Applicazione web per la visualizzazione interattiva di KPI aziendali con filtri dinamici, export CSV e supporto multi-tenant.",
+    "technologies": ["React", "TypeScript", "Recharts", "TailwindCSS"],
+    "link": "https://github.com/gabrieleboscarello",
+    "type": "project",
+    "date": "2024-08"
+  },
+  {
+    "id": 3,
+    "title": "REST API Microservices",
+    "description": "Architettura a microservizi per una piattaforma e-commerce: gestione ordini, inventario e pagamenti con autenticazione JWT e rate limiting.",
+    "technologies": ["Node.js", "Express", "Redis", "MongoDB"],
+    "link": "https://github.com/gabrieleboscarello",
+    "type": "project",
+    "date": "2024-05"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "AWS Certified Solutions Architect",
+    "description": "Certificazione professionale per la progettazione di architetture cloud scalabili, sicure e ad alta disponibilità su Amazon Web Services.",
+    "technologies": ["AWS", "Cloud Architecture", "IAM", "S3", "EC2"],
+    "link": "https://aws.amazon.com/certification/",
+    "issuer": "Amazon Web Services",
+    "type": "certification",
+    "date": "2024-09"
+  },
+  {
+    "id": 2,
+    "title": "Google Professional Data Engineer",
+    "description": "Certificazione per la progettazione, costruzione e operatività di sistemi di elaborazione dati su Google Cloud Platform.",
+    "technologies": ["GCP", "BigQuery", "Dataflow", "Pub/Sub"],
+    "link": "https://cloud.google.com/certification/",
+    "issuer": "Google Cloud",
+    "type": "certification",
+    "date": "2024-06"
+  },
+  {
+    "id": 3,
+    "title": "Dispensa: Clean Code Principles",
+    "description": "Raccolta strutturata di principi e pattern per la scrittura di codice manutenibile, testabile e scalabile in ambienti enterprise.",
+    "technologies": ["Software Design", "SOLID", "Design Patterns", "TDD"],
+    "link": "https://github.com/gabrieleboscarello",
+    "issuer": "Autoredatto",
+    "type": "notes",
+    "date": "2024-03"
+  }
+]

@@ -4,32 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ===== SEO FONDAMENTALE ===== -->
   <title>Gabriele Boscarello — Software Developer & Data Engineer</title>
   <meta name="description" content="Portfolio di Gabriele Boscarello: Software Developer specializzato in architetture backend, data engineering e soluzioni cloud per aziende." />
   <meta name="author" content="Gabriele Boscarello" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://gabrieleboscarello.github.io" />
 
-  <!-- ===== OPEN GRAPH (LinkedIn, Facebook) ===== -->
+
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://gabrieleboscarello.github.io" />
   <meta property="og:title" content="Gabriele Boscarello — Software Developer & Data Engineer" />
   <meta property="og:description" content="Soluzioni backend, architetture cloud e data pipeline per aziende che vogliono scalare con solidità." />
   <meta property="og:image" content="https://gabrieleboscarello.github.io/og-image.png" />
 
-  <!-- ===== TWITTER CARD ===== -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Gabriele Boscarello — Software Developer" />
   <meta name="twitter:description" content="Portfolio professionale: backend, data engineering, cloud." />
   <meta name="twitter:image" content="https://gabrieleboscarello.github.io/og-image.png" />
 
-  <!-- ===== FONT: Syne (display) + DM Sans (body) ===== -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
 
-  <!-- ===== TAILWIND CSS ===== -->
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -113,7 +110,7 @@
 
     .cursor::after { content:'|'; animation: blink 1.1s step-end infinite; color:#6ee7b7; }
 
-    /* ===== CARDS — overflow:hidden RIMOSSO, fix link ===== */
+
     .card {
       background: #111118;
       border: 1px solid #1e1e2e;
@@ -468,12 +465,7 @@
             <div class="flex flex-wrap gap-1.5">${tags}</div>
             <div class="flex items-center justify-between pt-2 border-t border-border">
               <div class="flex items-center gap-3">${issuer}${date}</div>
-              ${item.link ? `<a href="${item.link}" target="_blank" rel="noopener"
-                class="card-link text-xs flex items-center gap-1.5"
-                style="--card-accent:${accentColor};">
-                Apri
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-              </a>` : ''}
+              
             </div>
           </div>
         </article>`;

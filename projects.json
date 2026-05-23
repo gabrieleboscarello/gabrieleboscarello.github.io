@@ -4,7 +4,7 @@
     "title": "Implementazione VPN Site-to-Site IPsec",
     "description": "Progettazione e simulazione in ambiente Cisco Packet Tracer di una connessione VPN crittografata tra due sotto-reti locali remote (Sito 2 e Sito 3) attraverso un router centrale di transito che simula l'infrastruttura di un Internet Service Provider (ISP). Configurazione delle policy ISAKMP (Fase 1) con cifratura AES-256, Transform-Set IPsec (Fase 2) e Crypto Map con instradamento statico e controllo tramite ACL.",
     "technologies": ["Cisco CLI", "IPsec", "VPN", "Routing Statico", "Packet Tracer", "Access Control Lists (ACL)"],
-    "link": "https://github.com/gabrieleboscarello",
+    "link": "https://github.com/gabrieleboscarello/Document/cisco_vpn.pdf",
     "type": "project",
     "date": "2026-05"
   },
@@ -13,7 +13,7 @@
     "title": "Analisi e Simulazione di Attacchi Man-in-the-Middle (MitM)",
     "description": "Studio pratico delle vulnerabilità dei protocolli di rete locali in ambiente controllato. Implementazione di un attacco Man-in-the-Middle tramite tecniche di ARP Spoofing/Poisoning per intercettare ed esaminare il traffico dati non cifrato tra client e gateway. Analisi dei pacchetti tramite Wireshark per lo sviluppo di strategie di mitigazione, sicurezza e hardening delle difese.",
     "technologies": ["Cybersecurity", "ARP Spoofing", "Wireshark", "Network Analysis", "Linux"],
-    "link": "https://github.com/gabrieleboscarello",
+    "link": "https://github.com/gabrieleboscarello/Document/man-in-the-middle.pdf",
     "type": "project",
     "date": "2024-11"
   },
@@ -22,7 +22,7 @@
     "title": "Infrastruttura di Notifica Automatica Mail via SMTP su Raspberry Pi",
     "description": "Configurazione e deployment di un servizio Linux su scheda Raspberry Pi per l'invio automatizzato di email di log e avvisi di sistema. Integrazione del protocollo SMTP con autenticazione sicura (TLS/SSL) per l'inoltro di notifiche asincrone e ottimizzazione di script di sistema per il monitoraggio dell'infrastruttura hardware.",
     "technologies": ["Raspberry Pi", "Linux Bash", "SMTP", "Network Services", "System Monitoring"],
-    "link": "https://github.com/gabrieleboscarello",
+    "link": "https://github.com/gabrieleboscarello/Document/smtp.pdf",
     "type": "project",
     "date": "2024-08"
   }

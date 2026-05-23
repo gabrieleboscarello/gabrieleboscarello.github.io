@@ -521,12 +521,12 @@
             <div class="flex items-center justify-between pt-2 border-t border-border">
               <div class="flex items-center gap-3">${issuer}${date}</div>
               ${item.link ? `<a href="${item.link}" target="_blank" rel="noopener"
-                class="text-xs flex items-center gap-1.5 transition-colors"
-                style="color:#4a4a6a;"
-                onmouseover="this.style.color='${accentColor}'" onmouseout="this.style.color='#4a4a6a'">
+                class="card-link text-xs flex items-center gap-1.5"
+                style="--card-accent:${accentColor};">
                 Apri
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
               </a>` : ''}
+
             </div>
         </article>`;
     }

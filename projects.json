@@ -3,7 +3,14 @@
     "id": 1,
     "title": "Implementazione VPN Site-to-Site IPsec",
     "description": "Progettazione e simulazione in ambiente Cisco Packet Tracer di una connessione VPN crittografata tra due sotto-reti locali remote (Sito 2 e Sito 3) attraverso un router centrale di transito che simula l'infrastruttura di un Internet Service Provider (ISP). Configurazione delle policy ISAKMP (Fase 1) con cifratura AES-256, Transform-Set IPsec (Fase 2) e Crypto Map con instradamento statico e controllo tramite ACL.",
-    "technologies": ["Cisco CLI", "IPsec", "VPN", "Routing Statico", "Packet Tracer", "Access Control Lists (ACL)"],
+    "technologies": [
+      "Cisco CLI",
+      "IPsec",
+      "VPN",
+      "Routing Statico",
+      "Packet Tracer",
+      "Access Control Lists (ACL)"
+    ],
     "link": "https://gabrieleboscarello.github.io/Document/cisco_vpn.pdf",
     "type": "project",
     "date": "2026-05"
@@ -11,8 +18,14 @@
   {
     "id": 2,
     "title": "Analisi e Simulazione di Attacchi Man-in-the-Middle (MitM)",
-    "description": "Studio pratico delle vulnerabilità dei protocolli di rete locali in ambiente controllato. Implementazione di un attacco Man-in-the-Middle tramite tecniche di ARP Spoofing/Poisoning per intercettare ed esaminare il traffico dati non cifrato tra client e gateway. Analisi dei pacchetti tramite Wireshark per lo sviluppo di strategie di mitigazione, sicurezza e hardening delle difese.",
-    "technologies": ["Cybersecurity", "ARP Spoofing", "Wireshark", "Network Analysis", "Linux"],
+    "description": "Studio pratico delle vulnerabilitÃ  dei protocolli di rete locali in ambiente controllato. Implementazione di un attacco Man-in-the-Middle tramite tecniche di ARP Spoofing/Poisoning per intercettare ed esaminare il traffico dati non cifrato tra client e gateway. Analisi dei pacchetti tramite Wireshark per lo sviluppo di strategie di mitigazione, sicurezza e hardening delle difese.",
+    "technologies": [
+      "Cybersecurity",
+      "ARP Spoofing",
+      "Wireshark",
+      "Network Analysis",
+      "Linux"
+    ],
     "link": "https://gabrieleboscarello.github.io/Document/man-in-the-middle.pdf",
     "type": "project",
     "date": "2024-11"
@@ -21,9 +34,32 @@
     "id": 3,
     "title": "Infrastruttura di Notifica Automatica Mail via SMTP su Raspberry Pi",
     "description": "Configurazione e deployment di un servizio Linux su scheda Raspberry Pi per l'invio automatizzato di email di log e avvisi di sistema. Integrazione del protocollo SMTP con autenticazione sicura (TLS/SSL) per l'inoltro di notifiche asincrone e ottimizzazione di script di sistema per il monitoraggio dell'infrastruttura hardware.",
-    "technologies": ["Raspberry Pi", "Linux Bash", "SMTP", "Network Services", "System Monitoring"],
+    "technologies": [
+      "Raspberry Pi",
+      "Linux Bash",
+      "SMTP",
+      "Network Services",
+      "System Monitoring"
+    ],
     "link": "https://gabrieleboscarello.github.io/Document/smtp.pdf",
     "type": "project",
     "date": "2024-08"
+  },
+  {
+    "id": 1779545341373,
+    "title": "Implementazione dell'Architettura DMZ",
+    "description": "Progettazione e messa in sicurezza di un'infrastruttura aziendale a tre interfacce (Triple-Homed Firewall). \nConfigurazione di una Zona Demilitarizzata (DMZ) per l'isolamento di un Web Server pubblico rispetto alla LAN aziendale interna. Implementazione di Access Control List (ACL) estese per la granularità del traffico: autorizzazione dell'accesso HTTPS pubblico dall'esterno, blocco del movimento laterale e isolamento del traffico applicativo verso il Database Server interno sulla sola porta TCP 3306 (MySQL), con configurazione del flag established per la gestione sicura dello stato delle sessioni.",
+    "technologies": [
+      "Cisco ASA Firewall",
+      "ACL Estese",
+      "DMZ",
+      "Network Segmentation",
+      "TCP/IP",
+      "Hardening",
+      "Packet Trace"
+    ],
+    "link": "https://github.com/gabrieleboscarello/gabrieleboscarello.github.io/tree/main/Document/dmz_acl_estese",
+    "type": "project",
+    "date": "2026-06"
   }
 ]

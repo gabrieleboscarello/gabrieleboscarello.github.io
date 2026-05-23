@@ -44,8 +44,8 @@
             bg:      '#0a0a0f',
             surface: '#111118',
             border:  '#1e1e2e',
-            accent:  '#6ee7b7',   /* emerald-300 */
-            accent2: '#a78bfa',   /* violet-400 */
+            accent:  '#6ee7b7',
+            accent2: '#a78bfa',
             muted:   '#4a4a6a',
             text:    '#e2e2f0',
           },
@@ -65,7 +65,6 @@
   </script>
 
   <style>
-    /* ===== BASE ===== */
     *, *::before, *::after { box-sizing: border-box; }
     html { background: #0a0a0f; }
     body {
@@ -75,7 +74,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ===== NOISE TEXTURE OVERLAY ===== */
     body::before {
       content: '';
       position: fixed; inset: 0; z-index: 0; pointer-events: none;
@@ -83,7 +81,6 @@
       opacity: 0.35;
     }
 
-    /* ===== GLOW BLOBS ===== */
     .blob {
       position: fixed; border-radius: 50%; filter: blur(120px);
       pointer-events: none; z-index: 0;
@@ -91,12 +88,10 @@
     .blob-1 { width:520px; height:520px; background:rgba(110,231,183,0.07); top:-100px; left:-150px; }
     .blob-2 { width:600px; height:600px; background:rgba(167,139,250,0.06); bottom:-200px; right:-150px; }
 
-    /* ===== SCROLLBAR ===== */
     ::-webkit-scrollbar { width:4px; }
     ::-webkit-scrollbar-track { background:#0a0a0f; }
     ::-webkit-scrollbar-thumb { background:#1e1e2e; border-radius:4px; }
 
-    /* ===== SCROLL-REVEAL: items start hidden ===== */
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .reveal-delay-1 { transition-delay: 0.1s; }
@@ -104,7 +99,6 @@
     .reveal-delay-3 { transition-delay: 0.3s; }
     .reveal-delay-4 { transition-delay: 0.4s; }
 
-    /* ===== NAV ===== */
     .nav-link {
       position: relative; font-family: 'DM Sans', sans-serif;
       font-size: 0.85rem; letter-spacing: 0.04em; text-transform: uppercase;
@@ -117,26 +111,29 @@
     .nav-link:hover { color: #e2e2f0; }
     .nav-link:hover::after { width: 100%; }
 
-    /* ===== HERO TYPEWRITER CURSOR ===== */
     .cursor::after { content:'|'; animation: blink 1.1s step-end infinite; color:#6ee7b7; }
 
-    /* ===== CARDS ===== */
+    /* ===== CARDS — overflow:hidden RIMOSSO, fix link ===== */
     .card {
       background: #111118;
       border: 1px solid #1e1e2e;
       border-radius: 14px;
       transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-      position: relative; overflow: hidden;
+      position: relative;
     }
     .card::before {
       content:''; position:absolute; inset:0; border-radius:14px;
       background: linear-gradient(135deg, rgba(110,231,183,0.04) 0%, transparent 60%);
       opacity:0; transition: opacity 0.3s;
+      pointer-events: none;
     }
     .card:hover { transform: translateY(-4px); border-color: #2e2e4a; box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
     .card:hover::before { opacity:1; }
 
-    /* ===== TAGS ===== */
+    /* ===== CARD LINK — classe CSS invece di handler inline ===== */
+    .card-link { color: #4a4a6a; transition: color 0.2s; }
+    .card-link:hover { color: var(--card-accent, #6ee7b7); }
+
     .tag {
       display: inline-block; font-size: 0.7rem; letter-spacing: 0.06em;
       padding: 3px 10px; border-radius: 20px;
@@ -144,7 +141,6 @@
       color: #6ee7b7; font-family: 'DM Sans', sans-serif;
     }
 
-    /* ===== BUTTONS ===== */
     .btn-primary {
       display: inline-flex; align-items:center; gap:8px;
       background: #6ee7b7; color: #0a0a0f;
@@ -165,7 +161,6 @@
     }
     .btn-outline:hover { border-color: #6ee7b7; color: #6ee7b7; transform: translateY(-2px); }
 
-    /* ===== FORM ===== */
     .form-field {
       width:100%; background: #111118; border: 1px solid #1e1e2e;
       border-radius: 8px; color: #e2e2f0; padding: 14px 16px;
@@ -176,7 +171,6 @@
     .form-field::placeholder { color: #4a4a6a; }
     .form-field:focus { border-color: #6ee7b7; box-shadow: 0 0 0 3px rgba(110,231,183,0.1); }
 
-    /* ===== SECTION LABEL ===== */
     .section-label {
       font-family: 'DM Sans', sans-serif; font-size: 0.75rem;
       letter-spacing: 0.14em; text-transform: uppercase;
@@ -184,16 +178,13 @@
     }
     .section-label::before { content:''; display:block; width:28px; height:1px; background:#6ee7b7; }
 
-    /* ===== DIVIDER ===== */
     .divider { border: none; border-top: 1px solid #1e1e2e; }
 
-    /* ===== STAT ===== */
     .stat-num {
       font-family: 'Syne', sans-serif; font-size: 2.2rem; font-weight: 800;
       color: #6ee7b7; line-height: 1;
     }
 
-    /* ===== SKILL DOT ===== */
     .skill-pill {
       display:inline-flex; align-items:center; gap:6px;
       font-size:0.8rem; color:#b0b0d0; border:1px solid #1e1e2e;
@@ -202,7 +193,6 @@
     }
     .skill-dot { width:6px; height:6px; border-radius:50%; background:#6ee7b7; }
 
-    /* ===== LOADING SKELETON ===== */
     .skeleton {
       background: linear-gradient(90deg, #111118 25%, #1e1e2e 50%, #111118 75%);
       background-size: 200% 100%;
@@ -214,30 +204,20 @@
 </head>
 <body class="relative min-h-screen">
 
-  <!-- Ambient blobs -->
   <div class="blob blob-1"></div>
   <div class="blob blob-2"></div>
 
-  <!-- =============================================
-       NAVBAR
-  ============================================== -->
   <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background:transparent;">
     <nav class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
-
-      <!-- Logo -->
-      <a href="#hero" class="font-display font-bold text-base tracking-tight text-text" style="letter-spacing:-0.01em;">
+      <a href="#about" class="font-display font-bold text-base tracking-tight text-text" style="letter-spacing:-0.01em;">
         GB<span style="color:#6ee7b7;">.</span>
       </a>
-
-      <!-- Desktop Nav -->
       <ul class="hidden md:flex items-center gap-8">
         <li><a href="#about"   class="nav-link">Chi Sono</a></li>
         <li><a href="#work"    class="nav-link">Progetti</a></li>
         <li><a href="#certs"   class="nav-link">Certificazioni</a></li>
         <li><a href="#contact" class="nav-link">Contatti</a></li>
       </ul>
-
-      <!-- Social + CTA -->
       <div class="flex items-center gap-4">
         <a href="https://linkedin.com/in/gabrieleboscarello" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-muted hover:text-accent transition-colors">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
@@ -247,14 +227,10 @@
         </a>
         <a href="#contact" class="btn-primary hidden sm:inline-flex" style="padding:9px 20px; font-size:0.78rem;">Contattami</a>
       </div>
-
-      <!-- Mobile menu button -->
       <button id="mob-toggle" class="md:hidden text-muted hover:text-text transition-colors" aria-label="Menu">
         <svg id="mob-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
     </nav>
-
-    <!-- Mobile Menu -->
     <div id="mob-menu" class="hidden md:hidden px-6 pb-6">
       <ul class="flex flex-col gap-4 pt-2 border-t border-border">
         <li><a href="#about"   class="nav-link block py-1">Chi Sono</a></li>
@@ -267,15 +243,9 @@
 
   <main class="relative z-10">
 
-      ß
-    <!-- =============================================
-         CHI SONO
-    ============================================== -->
-    <section id="about" class="py-24 px-6 max-w-6xl mx-auto">
+    <section id="about" class="py-24 px-6 max-w-6xl mx-auto" style="padding-top: 120px;">
       <div class="section-label mb-10 reveal">Chi Sono</div>
-
       <div class="grid lg:grid-cols-2 gap-16 items-start">
-        <!-- Bio text -->
         <div>
           <h2 class="font-display font-bold text-3xl md:text-4xl mb-6 reveal" style="letter-spacing:-0.02em;">
             Gabriele Boscarello<br/><span style="color:#a78bfa;"></span>
@@ -283,26 +253,28 @@
           <div class="space-y-4 reveal reveal-delay-1">
             <p class="leading-relaxed" style="color:#8888a8; font-size:0.95rem;">
               Sono uno studente all'ultimo anno dell'Istituto Tecnico Industriale
-              con indirizzo Informatica e Telecomunicazioni di Caltagirone. 
-              Fin dall'inizio del mio percorso di studi, ho sviluppato una forte passione 
-              e una specializzazione mirata per il mondo del networking, 
-              della sistemistica e delle infrastrutture di rete.  
-              </p><p class="leading-relaxed" style="color:#8888a8; font-size:0.95rem;">
-                Ho consolidato le mie competenze teoriche e pratiche ottenendo la certificazione 
-              Cisco CCNA e i titoli ICDL Full-Standard e IT-Security, 
-              dimostrando una solida base nella gestione e sicurezza dei sistemi informatici.</p>
-              <p class="leading-relaxed" style="color:#8888a8; font-size:0.95rem;">
-               Sono costantemente alla ricerca di opportunità per mettere in pratica le mie competenze 
-               in contesti aziendali stimolanti e per contribuire alla progettazione e manutenzione di reti moderne 
-               e sicure.
-              </p>
-                          
+              con indirizzo Informatica e Telecomunicazioni di Caltagirone.
+              Fin dall'inizio del mio percorso di studi, ho sviluppato una forte passione
+              e una specializzazione mirata per il mondo del networking,
+              della sistemistica e delle infrastrutture di rete.
+            </p>
+            <p class="leading-relaxed" style="color:#8888a8; font-size:0.95rem;">
+              Ho consolidato le mie competenze teoriche e pratiche ottenendo la certificazione
+              Cisco CCNA e i titoli ICDL Full-Standard e IT-Security,
+              dimostrando una solida base nella gestione e sicurezza dei sistemi informatici.
+            </p>
+            <p class="leading-relaxed" style="color:#8888a8; font-size:0.95rem;">
+              Sono costantemente alla ricerca di opportunità per mettere in pratica le mie competenze
+              in contesti aziendali stimolanti e per contribuire alla progettazione e manutenzione di reti moderne
+              e sicure.
+            </p>
           </div>
           <div class="mt-8 reveal reveal-delay-2">
-            <a href="#contact" class="btn-outline">Richiedi maggiori informazioni→</a>
+            <a href="#contact" class="btn-outline">Richiedi maggiori informazioni →</a>
           </div>
         </div>
-<div class="reveal reveal-delay-1">
+
+        <div class="reveal reveal-delay-1">
           <div class="mb-6">
             <div class="text-xs uppercase tracking-widest mb-3" style="color:#4a4a6a;">Networking & Routing</div>
             <div class="flex flex-wrap gap-2">
@@ -332,14 +304,12 @@
               <span class="skill-pill"><span class="skill-dot" style="background:#fbbf24;"></span>Sicurezza sul Lavoro</span>
             </div>
           </div>
-         
+        </div>
+      </div>
     </section>
 
     <hr class="divider max-w-6xl mx-auto" />
 
-    <!-- =============================================
-         PROGETTI
-    ============================================== -->
     <section id="work" class="py-24 px-6 max-w-6xl mx-auto">
       <div class="flex items-end justify-between mb-12">
         <div>
@@ -347,36 +317,26 @@
           <h2 class="font-display font-bold text-3xl md:text-4xl reveal reveal-delay-1" style="letter-spacing:-0.02em;">I Miei Progetti</h2>
         </div>
         <a href="https://github.com/gabrieleboscarello" target="_blank" rel="noopener"
-           class="hidden sm:flex items-center gap-2 text-sm reveal reveal-delay-1"
-           style="color:#4a4a6a; transition: color 0.2s;"
-           onmouseover="this.style.color='#6ee7b7'" onmouseout="this.style.color='#4a4a6a'">
+           class="github-link hidden sm:flex items-center gap-2 text-sm reveal reveal-delay-1">
           Tutti su GitHub
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
         </a>
       </div>
-
-      <!-- Skeleton placeholders mentre carica -->
       <div id="projects-skeleton" class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         <div class="skeleton"></div>
         <div class="skeleton"></div>
         <div class="skeleton"></div>
       </div>
-
-      <!-- Grid reale -->
       <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 hidden"></div>
     </section>
 
     <hr class="divider max-w-6xl mx-auto" />
 
-    <!-- =============================================
-         CERTIFICAZIONI
-    ============================================== -->
     <section id="certs" class="py-24 px-6 max-w-6xl mx-auto">
       <div class="mb-12">
         <div class="section-label mb-4 reveal">Formazione &amp; Apprendimento</div>
         <h2 class="font-display font-bold text-3xl md:text-4xl reveal reveal-delay-1" style="letter-spacing:-0.02em;">Certificazioni &amp; Dispense</h2>
       </div>
-
       <div id="certs-skeleton" class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         <div class="skeleton"></div>
         <div class="skeleton"></div>
@@ -387,13 +347,10 @@
 
     <hr class="divider max-w-6xl mx-auto" />
 
-    <!-- =============================================
-         CONTATTI
-    ============================================== -->
     <section id="contact" class="py-24 px-6 max-w-6xl mx-auto">
       <div class="max-w-2xl mx-auto text-center">
         <div class="section-label justify-center mb-6 reveal">Contattami</div>
-
+      </div>
       <div class="max-w-xl mx-auto">
         <form id="contact-form" action="https://formspree.io/f/mpqnlwbg" method="POST" class="space-y-5 reveal reveal-delay-2">
           <div class="grid sm:grid-cols-2 gap-5">
@@ -426,6 +383,7 @@
       </div>
     </section>
   </main>
+
   <footer class="relative z-10 border-t border-border py-10 px-6">
     <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
       <div>
@@ -446,11 +404,7 @@
     </div>
   </footer>
 
-  <!-- =============================================
-       JAVASCRIPT
-  ============================================== -->
   <script>
-    /* ===== NAVBAR scroll effect ===== */
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 40) {
@@ -464,7 +418,6 @@
       }
     }, { passive: true });
 
-    /* ===== MOBILE MENU ===== */
     document.getElementById('mob-toggle').addEventListener('click', () => {
       document.getElementById('mob-menu').classList.toggle('hidden');
     });
@@ -472,7 +425,6 @@
       a.addEventListener('click', () => document.getElementById('mob-menu').classList.add('hidden'));
     });
 
-    /* ===== SCROLL REVEAL (IntersectionObserver) ===== */
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) { e.target.classList.add('visible'); }
@@ -480,7 +432,6 @@
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    /* ===== ICONS SVG ===== */
     const ICONS = {
       project: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`,
       certification: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>`,
@@ -493,7 +444,6 @@
       notes: 'Dispensa',
     };
 
-    /* ===== BUILD CARD ===== */
     function buildCard(item) {
       const icon  = ICONS[item.type] || ICONS.project;
       const label = TYPE_LABELS[item.type] || item.type;
@@ -510,12 +460,10 @@
             </div>
             <span class="text-xs uppercase tracking-widest px-2 py-1 rounded" style="background:rgba(255,255,255,0.04); color:#4a4a6a;">${label}</span>
           </div>
-
           <div class="flex-1">
             <h3 class="font-display font-semibold text-base mb-2 leading-snug" style="letter-spacing:-0.01em;">${item.title}</h3>
             <p class="text-sm leading-relaxed" style="color:#6666a0;">${item.description}</p>
           </div>
-
           <div class="space-y-3">
             <div class="flex flex-wrap gap-1.5">${tags}</div>
             <div class="flex items-center justify-between pt-2 border-t border-border">
@@ -526,26 +474,21 @@
                 Apri
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
               </a>` : ''}
-
             </div>
+          </div>
         </article>`;
     }
 
-    /* ===== LOAD DATA ===== */
     async function loadSection(jsonFile, gridId, skeletonId) {
       try {
         const res = await fetch(jsonFile + '?v=' + Date.now());
         if (!res.ok) throw new Error('Network error');
         const items = await res.json();
-
-        const grid    = document.getElementById(gridId);
+        const grid     = document.getElementById(gridId);
         const skeleton = document.getElementById(skeletonId);
-
         grid.innerHTML = items.map(buildCard).join('');
         skeleton.style.display = 'none';
         grid.classList.remove('hidden');
-
-        // Re-observe new cards for scroll reveal
         grid.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
       } catch (err) {
         console.warn('Could not load', jsonFile, err);
@@ -554,17 +497,15 @@
       }
     }
 
-    loadSection('projects.json',      'projects-grid', 'projects-skeleton');
-    loadSection('certifications.json','certs-grid',    'certs-skeleton');
+    loadSection('projects.json',       'projects-grid', 'projects-skeleton');
+    loadSection('certifications.json', 'certs-grid',    'certs-skeleton');
 
-    /* ===== CONTACT FORM ===== */
     const form = document.getElementById('contact-form');
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const btn = document.getElementById('submit-btn');
       btn.disabled = true;
       btn.innerHTML = `<svg class="animate-spin" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/><path d="M21 12a9 9 0 0 0-9-9"/></svg> Invio in corso…`;
-
       try {
         const data = new FormData(form);
         const res  = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });

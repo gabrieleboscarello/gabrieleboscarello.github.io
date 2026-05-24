@@ -18,7 +18,7 @@
   {
     "id": 2,
     "title": "Analisi e Simulazione di Attacchi Man-in-the-Middle (MitM)",
-    "description": "Studio pratico delle vulnerabilitÃ  dei protocolli di rete locali in ambiente controllato. Implementazione di un attacco Man-in-the-Middle tramite tecniche di ARP Spoofing/Poisoning per intercettare ed esaminare il traffico dati non cifrato tra client e gateway. Analisi dei pacchetti tramite Wireshark per lo sviluppo di strategie di mitigazione, sicurezza e hardening delle difese.",
+    "description": "Studio pratico delle vulnerabilità dei protocolli di rete locali in ambiente controllato. Implementazione di un attacco Man-in-the-Middle tramite tecniche di ARP Spoofing/Poisoning per intercettare ed esaminare il traffico dati non cifrato tra client e gateway. Analisi dei pacchetti tramite Wireshark per lo sviluppo di strategie di mitigazione, sicurezza e hardening delle difese.",
     "technologies": [
       "Cybersecurity",
       "ARP Spoofing",

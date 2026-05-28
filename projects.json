@@ -18,7 +18,7 @@
   {
     "id": 2,
     "title": "Analisi e Simulazione di Attacchi Man-in-the-Middle (MitM)",
-    "description": "Studio pratico delle vulnerabilità dei protocolli di rete locali in ambiente controllato. Implementazione di un attacco Man-in-the-Middle tramite tecniche di ARP Spoofing/Poisoning per intercettare ed esaminare il traffico dati non cifrato tra client e gateway. Analisi dei pacchetti tramite Wireshark per lo sviluppo di strategie di mitigazione, sicurezza e hardening delle difese.",
+    "description": "Studio pratico delle vulnerabilitÃ  dei protocolli di rete locali in ambiente controllato. Implementazione di un attacco Man-in-the-Middle tramite tecniche di ARP Spoofing/Poisoning per intercettare ed esaminare il traffico dati non cifrato tra client e gateway. Analisi dei pacchetti tramite Wireshark per lo sviluppo di strategie di mitigazione, sicurezza e hardening delle difese.",
     "technologies": [
       "Cybersecurity",
       "ARP Spoofing",
@@ -48,7 +48,7 @@
   {
     "id": 1779545341373,
     "title": "Implementazione dell'Architettura DMZ",
-    "description": "Progettazione e messa in sicurezza di un'infrastruttura aziendale a tre interfacce (Triple-Homed Firewall). \nConfigurazione di una Zona Demilitarizzata (DMZ) per l'isolamento di un Web Server pubblico rispetto alla LAN aziendale interna. Implementazione di Access Control List (ACL) estese per la granularità del traffico: autorizzazione dell'accesso HTTPS pubblico dall'esterno, blocco del movimento laterale e isolamento del traffico applicativo verso il Database Server interno sulla sola porta TCP 3306 (MySQL), con configurazione del flag established per la gestione sicura dello stato delle sessioni.",
+    "description": "Progettazione e messa in sicurezza di un'infrastruttura aziendale a tre interfacce (Triple-Homed Firewall). \nConfigurazione di una Zona Demilitarizzata (DMZ) per l'isolamento di un Web Server pubblico rispetto alla LAN aziendale interna. Implementazione di Access Control List (ACL) estese per la granularitÃ  del traffico: autorizzazione dell'accesso HTTPS pubblico dall'esterno, blocco del movimento laterale e isolamento del traffico applicativo verso il Database Server interno sulla sola porta TCP 3306 (MySQL), con configurazione del flag established per la gestione sicura dello stato delle sessioni.",
     "technologies": [
       "Cisco ASA Firewall",
       "ACL Estese",
@@ -61,5 +61,18 @@
     "link": "https://github.com/gabrieleboscarello/gabrieleboscarello.github.io/tree/main/Document/dmz_acl_estese",
     "type": "project",
     "date": "2026-06"
+  },
+  {
+    "id": 1780001689060,
+    "title": "Troubleshooting: Analisi e Ripristino Routing RIP",
+    "description": "Progetto focalizzato sull'analisi e la risoluzione di un guasto di rete (Troubleshooting) all'interno di un'infrastruttura simulata con Cisco Packet Tracer. Lo scenario prevedeva due router interconnessi tramite il protocollo di routing dinamico RIP, in cui era presente un'interruzione della comunicazione (perdita totale dei pacchetti) tra due host remoti.",
+    "technologies": [
+      "Cisco Packet Tracer",
+      "Troubleshooting di rete",
+      "CLI (Command Line Interface)"
+    ],
+    "link": "",
+    "type": "project",
+    "date": "2026-05"
   }
 ]

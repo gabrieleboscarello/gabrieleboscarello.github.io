@@ -78,7 +78,7 @@
   {
     "id": 1782230575406,
     "title": "Incontri Scuola Famiglia QRCode",
-    "description": "Ho sviluppato una web app per qualsiasi scuola, per l'organizzazione degli incontri scuola famiglia in modo semplice e moderno",
+    "description": "Ho sviluppato una web app per qualsiasi scuola, per l'organizzazione degli incontri scuola famiglia in modo semplice e moderno, integrando la funzione di qrcode per la prenotazione del ricevimento. Il tutto viene gestito su database sql.",
     "technologies": [
       "HTML",
       "CSS",

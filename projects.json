@@ -89,5 +89,17 @@
     "link": "",
     "type": "project",
     "date": "2026.06"
-  }
+  },{
+  "id": 1782230575407,
+  "title": "Analizzatore parametri di rete",
+  "description": "Ho sviluppato un'applicazione desktop per l'analisi e il monitoraggio delle reti in ambiente di laboratorio. Il software integra un Port & Host Scanner per verificare stato, servizi e latenza delle porte, e un Live Packet Sniffer per catturare e analizzare il traffico dati in tempo reale.",
+  "technologies": [
+    "Python",
+    "Scapy",
+    "Tkinter"
+  ],
+  "link": "",
+  "type": "project",
+  "date": "2026.09"
+}
 ]

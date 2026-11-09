@@ -18,7 +18,7 @@
   {
     "id": 2,
     "title": "Analisi e Simulazione di Attacchi Man-in-the-Middle (MitM)",
-    "description": "Studio pratico delle vulnerabilitÃÂÃÂ  dei protocolli di rete locali in ambiente controllato. Implementazione di un attacco Man-in-the-Middle tramite tecniche di ARP Spoofing/Poisoning per intercettare ed esaminare il traffico dati non cifrato tra client e gateway. Analisi dei pacchetti tramite Wireshark per lo sviluppo di strategie di mitigazione, sicurezza e hardening delle difese.",
+    "description": "Studio pratico delle vulnerabilitÃÂÃÂÃÂÃÂ  dei protocolli di rete locali in ambiente controllato. Implementazione di un attacco Man-in-the-Middle tramite tecniche di ARP Spoofing/Poisoning per intercettare ed esaminare il traffico dati non cifrato tra client e gateway. Analisi dei pacchetti tramite Wireshark per lo sviluppo di strategie di mitigazione, sicurezza e hardening delle difese.",
     "technologies": [
       "Cybersecurity",
       "ARP Spoofing",
@@ -48,7 +48,7 @@
   {
     "id": 1779545341373,
     "title": "Implementazione dell'Architettura DMZ",
-    "description": "Progettazione e messa in sicurezza di un'infrastruttura aziendale a tre interfacce (Triple-Homed Firewall). \nConfigurazione di una Zona Demilitarizzata (DMZ) per l'isolamento di un Web Server pubblico rispetto alla LAN aziendale interna. Implementazione di Access Control List (ACL) estese per la granularitÃÂÃÂ  del traffico: autorizzazione dell'accesso HTTPS pubblico dall'esterno, blocco del movimento laterale e isolamento del traffico applicativo verso il Database Server interno sulla sola porta TCP 3306 (MySQL), con configurazione del flag established per la gestione sicura dello stato delle sessioni.",
+    "description": "Progettazione e messa in sicurezza di un'infrastruttura aziendale a tre interfacce (Triple-Homed Firewall). \nConfigurazione di una Zona Demilitarizzata (DMZ) per l'isolamento di un Web Server pubblico rispetto alla LAN aziendale interna. Implementazione di Access Control List (ACL) estese per la granularitÃÂÃÂÃÂÃÂ  del traffico: autorizzazione dell'accesso HTTPS pubblico dall'esterno, blocco del movimento laterale e isolamento del traffico applicativo verso il Database Server interno sulla sola porta TCP 3306 (MySQL), con configurazione del flag established per la gestione sicura dello stato delle sessioni.",
     "technologies": [
       "Cisco ASA Firewall",
       "ACL Estese",
@@ -117,5 +117,26 @@
     "link": "",
     "type": "project",
     "date": "2026-10"
+  },
+  {
+    "id": 1794252076895,
+    "title": "Infrastruttura di Rete Aziendale (Dati & VoIP)",
+    "description": "Progettazione e implementazione di una rete aziendale in ambiente Cisco Packet Tracer. La soluzione integra la separazione dei flussi tramite VLAN  con architettura Router-on-a-Stick, servizi DHCP con Option 150, NAT per l'accesso WAN, e un centralino VoIP CME su router Cisco 2811 associato a un piano di numerazione con Selezione Passante GND (02-645430x)",
+    "technologies": [
+      "Cisco Packet Tracer",
+      "Cisco IOS",
+      "VLAN",
+      "802.1Q",
+      "Inter-VLAN Routing",
+      "DHCP",
+      "NAT",
+      "VoIP",
+      "CME (Call Manager Express)",
+      "SIP",
+      "SCCP"
+    ],
+    "link": "",
+    "type": "project",
+    "date": "2026-03"
   }
 ]

@@ -18,7 +18,7 @@
   {
     "id": 2,
     "title": "Analisi e Simulazione di Attacchi Man-in-the-Middle (MitM)",
-    "description": "Studio pratico delle vulnerabilità  dei protocolli di rete locali in ambiente controllato. Implementazione di un attacco Man-in-the-Middle tramite tecniche di ARP Spoofing/Poisoning per intercettare ed esaminare il traffico dati non cifrato tra client e gateway. Analisi dei pacchetti tramite Wireshark per lo sviluppo di strategie di mitigazione, sicurezza e hardening delle difese.",
+    "description": "Studio pratico delle vulnerabilitÃ Â  dei protocolli di rete locali in ambiente controllato. Implementazione di un attacco Man-in-the-Middle tramite tecniche di ARP Spoofing/Poisoning per intercettare ed esaminare il traffico dati non cifrato tra client e gateway. Analisi dei pacchetti tramite Wireshark per lo sviluppo di strategie di mitigazione, sicurezza e hardening delle difese.",
     "technologies": [
       "Cybersecurity",
       "ARP Spoofing",
@@ -134,6 +134,28 @@
       "CME (Call Manager Express)",
       "SIP",
       "SCCP"
+    ],
+    "link": "",
+    "type": "project",
+    "date": "2026-11"
+  },
+  {
+    "id": 1795519469069,
+    "title": "NAS Domestico su Raspberry Pi e Accesso Remoto D",
+    "description": "rogettazione e configurazione di un Network Attached Storage (NAS) basato su Raspberry Pi con unità SSD esterna da 1 TB montata automaticamente su sistema Linux. Configurazione della rete locale con IP statico, condivisione file (SMB/SFTP) e implementazione dell'accesso remoto sicuro dall'esterno tramite regole di Port Forwarding sul router e aggiornamento automatico dell'IP pubblico mediante Dynamic DNS (DDNS).",
+    "technologies": [
+      "Raspberry Pi",
+      "Linux",
+      "SSD",
+      "Reti TCP/IP",
+      "DHCP",
+      "DNS",
+      "DDNS",
+      "NAT",
+      "Port Forwarding",
+      "SMB",
+      "SSH",
+      "SFTP"
     ],
     "link": "",
     "type": "project",

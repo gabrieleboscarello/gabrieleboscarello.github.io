@@ -141,7 +141,7 @@
   },
   {
     "id": 1795519469069,
-    "title": "NAS Domestico su Raspberry Pi e Accesso Remoto D",
+    "title": "NAS Domestico su Raspberry Pi e Accesso Remoto",
     "description": "rogettazione e configurazione di un Network Attached Storage (NAS) basato su Raspberry Pi con unità SSD esterna da 1 TB montata automaticamente su sistema Linux. Configurazione della rete locale con IP statico, condivisione file (SMB/SFTP) e implementazione dell'accesso remoto sicuro dall'esterno tramite regole di Port Forwarding sul router e aggiornamento automatico dell'IP pubblico mediante Dynamic DNS (DDNS).",
     "technologies": [
       "Raspberry Pi",
